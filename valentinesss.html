@@ -1,0 +1,88 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Valentine's Day Proposal</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #fef6f6;
+      text-align: center;
+      margin: 0;
+      padding: 0;
+    }
+    .container {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+    }
+    h1 {
+      color: #ff6b81;
+      font-size: 3em;
+      margin-bottom: 20px;
+    }
+    .button-container {
+      margin-top: 30px;
+    }
+    .yes-button, .no-button {
+      padding: 15px 30px;
+      font-size: 1.5em;
+      margin: 10px;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+    .yes-button {
+      background-color: #ff6b81;
+      color: white;
+    }
+    .no-button {
+      background-color: #ffaaaa;
+      color: white;
+    }
+    .response-message {
+      font-size: 2em;
+      margin-top: 20px;
+      color: #ff6b81;
+      display: none;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="container">
+    <h1>Pippi will you be my valentine this year? (plsss say yes)</h1>
+    <div class="button-container">
+      <button class="yes-button" onclick="answer('yes')">Yes</button>
+      <button class="no-button" onclick="answer('no')">No</button>
+    </div>
+    <div id="response" class="response-message"></div>
+  </div>
+
+  <script>
+    let responseMessage = document.getElementById('response');
+    let attempts = 0;
+
+    function answer(response) {
+      if (response === 'yes') {
+        responseMessage.innerText = "Yay! I'm so happy! 💖";
+        responseMessage.style.color = "#28a745"; // Green for happy
+        responseMessage.style.display = 'block';
+      } else {
+        attempts++;
+        if (attempts === 1) {
+          responseMessage.innerText = "uh i think you missed click pls dont say no :(";
+        } else if (attempts === 2) {
+          responseMessage.innerText = "no no pls plsssss pippiii 😢";
+        }
+        responseMessage.style.color = "#dc3545"; // Red for sad
+        responseMessage.style.display = 'block';
+      }
+    }
+  </script>
+
+</body>
+</html>
